@@ -1,0 +1,16 @@
+{
+    "name": "notes",
+    "version": "1.0.0",
+    "description": "notes",
+    "main": "index.js",
+    "scripts": {
+        "dist": "node scripts/dist.js"
+    },
+    "repository": "git@github.com:edonet/notes.git",
+    "author": "edoner <edonet@163.com>",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.18.0",
+        "glob": "^7.1.2"
+    }
+}
