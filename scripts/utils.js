@@ -58,7 +58,7 @@ function getArticleStats(file) {
             // 生成文件信息
             article.title = path.basename(file, '.md');
             article.path = file.replace(root, '');
-            article.category = article.path.split(path.sep)[2] || 'notes';
+            article.category = article.path.split(path.sep)[1] || 'notes';
             article.lastModified = formatTime(stats.mtimeMs);
 
             // 返回文件

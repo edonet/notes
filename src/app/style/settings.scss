@@ -1,0 +1,34 @@
+/**
+ *****************************************
+ * Created by lifx
+ * Created on 2018-04-01 15:21:31
+ *****************************************
+ */
+@charset "utf-8";
+
+
+/**
+ *****************************************
+ * 风格配置
+ *****************************************
+ */
+$fontSize: 16px;
+$fontColor: #2c3e50;
+$borderColor: #ddd;
+$backgroundColor: white;
+$activeColor: #42b983;
+$grayColor: #999;
+$placeholderColor: #aaa;
+
+
+/**
+ *************************************
+ * 屏幕密度深度
+ *************************************
+ */
+@mixin ratio($size: 2) {
+    @media only screen and (-webkit-min-device-pixel-ratio: #{$size}),
+    only screen and (min-device-pixel-ratio: #{$size}) {
+        @content;
+    }
+}

@@ -1,0 +1,71 @@
+/**
+ *****************************************
+ * Created by lifx
+ * Created on 2018-05-16 21:13:24
+ *****************************************
+ */
+@charset "utf-8";
+
+
+/**
+ *****************************************
+ * 定义风格
+ *****************************************
+ */
+$backgroundColor: #24292e;
+
+
+/**
+ *****************************************
+ * 容器样式
+ *****************************************
+ */
+.container {
+    position: relative;
+    width: 240px;
+    height: 100%;
+    color: #cad2e2;
+    background-color: $backgroundColor;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 3;
+
+    & > h1 {
+        box-shadow: 0 0 2px 0 rgba(black, .7);
+    }
+}
+
+
+/**
+ *****************************************
+ * 选项样式
+ *****************************************
+ */
+.category {
+    $activeColor: lighten($backgroundColor, 6%);
+    transition: background-color .3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $activeColor;
+    }
+
+    &.actived {
+        position: relative;
+        background-color: $activeColor;
+
+        &::after {
+            $size: 10px;
+            content: '';
+            display: block;
+            width: $size;
+            height: $size;
+            position: absolute;
+            top: 50%;
+            right: -.5 * $size;
+            margin-top: -.5 * $size;
+            background-color: white;
+            transform: rotate(45deg);
+        }
+    }
+}

@@ -1,14 +1,26 @@
 [
     {
+        "title": "如何学习样式",
+        "path": "article/CSS/如何学习样式.md",
+        "category": "CSS",
+        "lastModified": "2018-05-16 22:57:28"
+    },
+    {
+        "title": "语义化标签",
+        "path": "article/HTML/语义化标签.md",
+        "category": "HTML",
+        "lastModified": "2018-05-16 22:58:28"
+    },
+    {
         "title": "Javascrpt 浅析",
         "path": "article/javascript/Javascrpt 浅析.md",
-        "category": "Javascrpt 浅析.md",
-        "lastModified": "2018-05-15 17:12:32"
+        "category": "javascript",
+        "lastModified": "2018-05-16 20:32:54"
     },
     {
         "title": "开始记录东西",
         "path": "article/notes/开始记录东西.md",
-        "category": "开始记录东西.md",
-        "lastModified": "2018-05-15 16:32:40"
+        "category": "notes",
+        "lastModified": "2018-05-16 20:32:54"
     }
 ]

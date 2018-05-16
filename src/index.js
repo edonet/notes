@@ -12,9 +12,26 @@
  * 加载依赖
  *****************************************
  */
-import { fetchArticle } from './api';
+import React from 'react';
+import { render } from 'react-dom';
+import App from './app';
 
 
-fetchArticle('article/notes/开始记录东西.md').then(res => {
-    console.log(res);
-});
+/**
+ *****************************************
+ * 渲染【App】
+ *****************************************
+ */
+render(<App />, document.getElementById('app'));
+
+
+/**
+ *****************************************
+ * 启用热替换
+ *****************************************
+ */
+if (module.hot) {
+    module.hot.accept('./app', () => {
+        render(<App />, document.getElementById('app'));
+    });
+}
