@@ -10,7 +10,7 @@
     "author": "edoner <edonet@163.com>",
     "license": "MIT",
     "dependencies": {
-        "axios": "^0.18.0",
-        "glob": "^7.1.2"
+        "glob": "^7.1.2",
+        "ylan": "^0.0.118"
     }
 }

@@ -9,9 +9,29 @@
 
 /**
  *****************************************
- * 获取日记列表
+ * 加载依赖
  *****************************************
  */
-export function fetchArticleList() {
+import ajax from 'ylan/ajax';
+import settings from '../settings';
 
+
+/**
+ *****************************************
+ * 定义参数
+ *****************************************
+ */
+const articleFetchOptions = {
+    baseURL: settings.articleBaseURL,
+    responseType: 'text'
+};
+
+
+/**
+ *****************************************
+ * 获取日志文件
+ *****************************************
+ */
+export function fetchArticle(url) {
+    return ajax({ url, ...articleFetchOptions });
 }

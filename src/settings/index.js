@@ -1,7 +1,7 @@
 /**
  *****************************************
  * Created by lifx
- * Created on 2018-05-15 18:04:37
+ * Created on 2018-05-16 16:27:38
  *****************************************
  */
 'use strict';
@@ -9,9 +9,9 @@
 
 /**
  *****************************************
- * 请求数据
+ * 定义端点配置
  *****************************************
  */
-export default async function ajax(url, params) {
-    return await axios({ url, params });
-}
+export default {
+    articleBaseURL: 'https://raw.githubusercontent.com/edonet/notes/master/'
+};

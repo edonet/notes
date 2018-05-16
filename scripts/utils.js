@@ -16,7 +16,7 @@ const
     fs = require('fs'),
     path = require('path'),
     glob = require('glob'),
-    root = path.resolve(__dirname, '../');
+    root = path.resolve(__dirname, '../') + '/';
 
 
 /**

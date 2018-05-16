@@ -27,7 +27,7 @@ async function run() {
     files = await Promise.all(files.map(utils.getArticleStats));
 
     // 保存文件清单
-    await utils.saveArticleList('article/list.json', files);
+    await utils.saveArticleList('src/settings/article.json', files);
 }
 
 
