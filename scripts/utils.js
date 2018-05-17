@@ -24,9 +24,9 @@ const
  * 获取文档
  *****************************************
  */
-function getArticleList() {
+function getArticleList(match) {
     return new Promise((resolve, reject) => {
-        glob(path.resolve(root, 'article/**/*.md'), (err, files) => {
+        glob(path.resolve(root, match), (err, files) => {
 
             // 处理错误
             if (err) {
@@ -42,27 +42,91 @@ function getArticleList() {
 
 /**
  *****************************************
+ * 获取文档缓存列表
+ *****************************************
+ */
+function getArticleMapper(dir) {
+    let mapper = {};
+
+    try {
+        let list = require(path.resolve(root, dir));
+
+        // 生成映射
+        list.forEach(x => mapper[x.id] = x);
+    } catch (err) {
+        // do nothing;
+    }
+
+    // 返回对象
+    return mapper;
+}
+
+
+/**
+ *****************************************
  * 获取文档状态
  *****************************************
  */
-function getArticleStats(file) {
+function getArticleStats(file, manifest = {}) {
     return new Promise((resolve, reject) => {
-        fs.stat(file, (err, stats) => {
-            let article = {};
+        fs.stat(file, async (err, stats) => {
+            let article = {},
+                id, cache;
 
             // 处理错误
             if (err) {
                 return reject(err);
             }
 
+            // 获取绑在
+            id = file.replace(root, '');
+            cache = manifest[id] || {};
+
+            // 文件未更新
+            if (cache.lastModified === stats.mtimeMs) {
+                return resolve(cache);
+            }
+
             // 生成文件信息
+            article.id = id;
             article.title = path.basename(file, '.md');
-            article.path = file.replace(root, '');
-            article.category = article.path.split(path.sep)[1] || 'notes';
-            article.lastModified = formatTime(stats.mtimeMs);
+            article.lastModified = stats.mtimeMs;
+            article.date = formatTime(stats.mtimeMs);
+            article.category = article.id.split(path.sep)[1] || 'notes';
+            article.tags = await getArticleTags(file);
 
             // 返回文件
             resolve(article);
+        });
+    });
+}
+
+
+/**
+ *****************************************
+ * 获取文件标签
+ *****************************************
+ */
+function getArticleTags(file) {
+    return new Promise(resolve => {
+        fs.readFile(file, (err, str) => {
+            if (!err) {
+                let tags = new Set(),
+                    regexp = /\*\*(\S+?)\*\*/g,
+                    matched = regexp.exec(str);
+
+                // 提取标签
+                while (matched) {
+                    tags.add(matched[1]);
+                    matched = regexp.exec(str);
+                }
+
+                // 生成结果
+                resolve(tags.size ? [...tags] : ['随笔']);
+            }
+
+            // 返回结果
+            return resolve(['随笔']);
         });
     });
 }
@@ -118,6 +182,7 @@ function prefixZero(num) {
  */
 module.exports = {
     getArticleList,
+    getArticleMapper,
     getArticleStats,
     saveArticleList
 };

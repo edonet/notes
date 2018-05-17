@@ -53,7 +53,10 @@ export default class AppList extends Component {
                 className={ styled('article ph15 pv10 bdbt', x === article && 'actived') }
                 onClick={ () => onChange(x) }>
                 <h3 className="f18 nowrap">{ x.title }</h3>
-                <p className="f12">{ x.lastModified }</p>
+                <p className="f12 nowrap">
+                    <span>{ x.date.split(' ')[0] }</span>
+                    <span className="pl10">{ x.tags.join('、') }</span>
+                </p>
             </li>
         ));
     }

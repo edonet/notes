@@ -12,7 +12,9 @@
  * 加载依赖
  *****************************************
  */
-const utils = require('./utils');
+const
+    utils = require('./utils'),
+    manifest = 'src/settings/article.json';
 
 
 /**
@@ -21,13 +23,14 @@ const utils = require('./utils');
  *****************************************
  */
 async function run() {
-    let files = await utils.getArticleList();
+    let files = await utils.getArticleList('article/**/*.md'),
+        mapper = utils.getArticleMapper(manifest);
 
     // 获取文件状态
-    files = await Promise.all(files.map(utils.getArticleStats));
+    files = await Promise.all(files.map(file => utils.getArticleStats(file, mapper)));
 
     // 保存文件清单
-    await utils.saveArticleList('src/settings/article.json', files);
+    await utils.saveArticleList(manifest, files);
 }
 
 
