@@ -4,7 +4,7 @@
     "description": "notes",
     "main": "index.js",
     "scripts": {
-        "dist": "node scripts/dist.js"
+        "build": "node scripts/build.js"
     },
     "repository": "git@github.com:edonet/notes.git",
     "author": "edoner <edonet@163.com>",
