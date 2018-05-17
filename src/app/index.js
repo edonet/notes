@@ -65,7 +65,7 @@ export default class App extends Component {
             let name = article.category;
 
             if (name in map) {
-                map[name].list.push(category);
+                map[name].list.push(article);
             } else {
                 category.push(map[name] = { name, list: [article] });
             }

@@ -48,7 +48,7 @@ export default class AppList extends Component {
     render() {
         return (
             <aside className={ styled('container lock bdrt col') }>
-                <div className={ styled('searchbar bdbt ph15 pv15') }>
+                <div className={ styled('bdbt ph15 pv15') }>
                     <AppSearch
                         keyword={ this.state.keyword }
                         onChange={ this.handleKeywordChange }
