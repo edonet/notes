@@ -36,8 +36,8 @@ export default class AppArticle extends Component {
 
         // 返回元素
         return (
-            <div className={ styled('container', 'flex', 'tc') }>
-                <article className={ styled('article', 'ph20', 'pt30', 'tl') }>
+            <div className={ styled('container flex tc') }>
+                <article className={ styled('article ph20 pt30 tl') }>
                     { article && article.title }
                 </article>
             </div>

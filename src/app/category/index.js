@@ -35,7 +35,7 @@ export default class AppCategory extends Component {
     /* 渲染组件 */
     render() {
         return (
-            <header className={ styled('container', 'lock') }>
+            <header className={ styled('container lock') }>
                 <h1 className="f18 pl15 pt20 pb15">AIRNOTES</h1>
                 <ul>{ this.renderCategory() }</ul>
             </header>
@@ -49,7 +49,7 @@ export default class AppCategory extends Component {
         // 生成元素列表
         return category.map(({ name, list }) => (
             <li key={ name }
-                className={ styled('category', 'pv10 ph20', list === curr && 'actived') }
+                className={ styled('category pv10 pl25 pr15 nowrap', list === curr && 'actived') }
                 onClick={ () => onChange(list) }>
                 { this.upperCase(name) }
             </li>

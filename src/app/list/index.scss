@@ -15,8 +15,18 @@
 .container {
     width: 280px;
     height: 100%;
-    overflow-y: auto;
     z-index: 2;
+}
+
+
+/**
+ *****************************************
+ * 列表样式
+ *****************************************
+ */
+.list {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
@@ -25,20 +35,11 @@
  * 选项样式
  *****************************************
  */
-.actived {
-    position: relative;
+.article {
+    transition: color .3s ease-in-out;
+    cursor: pointer;
 
-    &::after {
-        $size: 10px;
-        content: '';
-        display: block;
-        width: $size;
-        height: $size;
-        position: absolute;
-        top: 50%;
-        right: -.5 * $size;
-        margin-top: -.5 * $size;
-        background-color: white;
-        transform: rotate(45deg);
+    &.actived {
+        color: #42b983;
     }
 }

@@ -35,8 +35,10 @@ export default class AppList extends Component {
     /* 渲染组件 */
     render() {
         return (
-            <aside className={ styled('container', 'lock', 'bdrt', 'ovhd') }>
-                <ul>{ this.renderArticleList() }</ul>
+            <aside className={ styled('container lock bdrt col') }>
+                <nav className={ styled('list flex') }>
+                    <ul>{ this.renderArticleList() }</ul>
+                </nav>
             </aside>
         );
     }
@@ -48,7 +50,7 @@ export default class AppList extends Component {
         // 返回元素
         return list && list.map(x => (
             <li key={ x.title }
-                className={ styled('ph15', 'pv10', 'bdbt', x === article && 'actived') }
+                className={ styled('article ph15 pv10 bdbt', x === article && 'actived') }
                 onClick={ () => onChange(x) }>
                 <h3 className="f18 nowrap">{ x.title }</h3>
                 <p className="f12">{ x.lastModified }</p>

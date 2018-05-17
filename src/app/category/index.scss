@@ -43,6 +43,7 @@ $backgroundColor: #24292e;
  */
 .category {
     $activeColor: lighten($backgroundColor, 6%);
+    margin-top: 1px;
     transition: background-color .3s ease-in-out;
     cursor: pointer;
 
