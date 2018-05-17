@@ -12,7 +12,7 @@
  * 加载依赖
  *****************************************
  */
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { use } from 'ylan/style';
 import style from './index.scss';
 
@@ -72,6 +72,7 @@ export default class AppSearch extends Component {
                 onCompositionEnd: this.handleCompositionEnd
             };
 
+
         // 屏蔽原生【change】事件
         delete rest.keyword;
         delete rest.onChange;
@@ -86,22 +87,25 @@ export default class AppSearch extends Component {
 
     /* 触发更新 */
     handleChange(value) {
+        if (value !== this.state.value) {
 
-        // 更新状态
-        this.setState({ value });
+            // 更新状态
+            this.setState({ value });
 
-        // 派发事件
-        this.$$timeStamp && clearTimeout(this.$$timeStamp);
-        this.$$timeStamp = setTimeout(() => {
-            this.$$timeStamp = null;
-            this.props.onChange && this.props.onChange(value);
-        }, this.$$delay);
+            // 派发事件
+            this.$$timeStamp && clearTimeout(this.$$timeStamp);
+            this.$$timeStamp = setTimeout(() => {
+                this.$$timeStamp = null;
+                this.props.onChange && this.props.onChange(value);
+            }, this.$$delay);
+        }
     }
 
     /* 监听输入 */
     handleInput(event) {
         this.props.onInput && this.props.onInput(event);
         this.$$isComposing || this.handleChange(event.target.value);
+        this.$$isComposing = false;
     }
 
     /* 监听开始合成 */
@@ -111,7 +115,6 @@ export default class AppSearch extends Component {
 
     /* 监听结束合成 */
     handleCompositionEnd(event) {
-        console.log(event.target.value);
         this.handleChange(event.target.value);
         this.$$isComposing = false;
     }
