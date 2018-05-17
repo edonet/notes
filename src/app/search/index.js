@@ -12,7 +12,7 @@
  * 加载依赖
  *****************************************
  */
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 import { use } from 'ylan/style';
 import style from './index.scss';
 
