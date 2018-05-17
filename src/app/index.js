@@ -53,7 +53,7 @@ export default class App extends Component {
         );
     }
 
-    /* 创建文档分类 */
+    /* 创建状态 */
     createAppState(articleList) {
         let map = Object.create(null),
             category = [{ name: 'All', list: articleList }],
