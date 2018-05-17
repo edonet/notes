@@ -15,6 +15,7 @@
 import React, { Component } from 'react';
 import { use } from 'ylan/style';
 import style from './index.scss';
+import AppSearch from '../search';
 
 
 /**
@@ -32,10 +33,27 @@ const styled = use(style);
  */
 export default class AppList extends Component {
 
+    /* 初始化组件 */
+    constructor(props, ...args) {
+        super(props, ...args);
+
+        // 定义状态
+        this.state = { keyword: '' };
+
+        // 绑定回调
+        this.handleKeywordChange = this.handleKeywordChange.bind(this);
+    }
+
     /* 渲染组件 */
     render() {
         return (
             <aside className={ styled('container lock bdrt col') }>
+                <AppSearch
+                    className={ styled('searchbar bdbt ph15 pv15') }
+                    keyword={ this.state.keyword }
+                    onChange={ this.handleKeywordChange }
+                    placeholder="Search"
+                />
                 <nav className={ styled('list flex') }>
                     <ul>{ this.renderArticleList() }</ul>
                 </nav>
@@ -59,5 +77,10 @@ export default class AppList extends Component {
                 </p>
             </li>
         ));
+    }
+
+    // 监听搜索关键字过滤
+    handleKeywordChange(keyword) {
+        this.setState({ keyword });
     }
 }
