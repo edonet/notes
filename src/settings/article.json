@@ -2,40 +2,45 @@
     {
         "id": "article/CSS/如何学习样式.md",
         "title": "如何学习样式",
-        "lastModified": 1526518900170.758,
-        "date": "2018-05-17 09:01:40",
+        "lastModified": 1526482648153.7107,
+        "date": "2018-05-16 22:57:28",
         "category": "CSS",
         "tags": [
+            "CSS",
             "随笔"
         ]
     },
     {
         "id": "article/HTML/语义化标签.md",
         "title": "语义化标签",
-        "lastModified": 1526518900171.616,
-        "date": "2018-05-17 09:01:40",
+        "lastModified": 1526482708120.3257,
+        "date": "2018-05-16 22:58:28",
         "category": "HTML",
         "tags": [
+            "HTML",
             "随笔"
         ]
     },
     {
         "id": "article/javascript/Javascrpt 浅析.md",
         "title": "Javascrpt 浅析",
-        "lastModified": 1526375552492.7148,
-        "date": "2018-05-15 17:12:32",
-        "category": "javascript",
+        "lastModified": 1526473974746.5488,
+        "date": "2018-05-16 20:32:54",
+        "category": "Javascript",
         "tags": [
-            "随笔"
+            "Javascript",
+            "备忘"
         ]
     },
     {
         "id": "article/notes/开始记录东西.md",
         "title": "开始记录东西",
-        "lastModified": 1526527922047.0347,
-        "date": "2018-05-17 11:32:02",
-        "category": "notes",
+        "lastModified": 1526559150553.1174,
+        "date": "2018-05-17 20:12:30",
+        "category": "Notes",
         "tags": [
+            "Notes",
+            "备忘",
             "Mac",
             "markdown",
             "mou",

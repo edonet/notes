@@ -51,13 +51,8 @@ export default class AppCategory extends Component {
             <li key={ name }
                 className={ styled('category pv10 pl25 pr15 nowrap', list === curr && 'actived') }
                 onClick={ () => onChange(list) }>
-                { this.upperCase(name) }
+                { name }
             </li>
         ));
-    }
-
-    /* 首字母大写 */
-    upperCase(str) {
-        return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 }

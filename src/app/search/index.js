@@ -48,6 +48,7 @@ export default class AppSearch extends Component {
         this.handleInput = this.handleInput.bind(this);
         this.handleCompositionStart = this.handleCompositionStart.bind(this);
         this.handleCompositionEnd = this.handleCompositionEnd.bind(this);
+        this.handleClear = this.handleClear.bind(this);
     }
 
     /* 更新状态 */
@@ -79,14 +80,16 @@ export default class AppSearch extends Component {
 
         // 返回元素
         return (
-            <div className={ className }>
+            <div className={ styled(className, 'rel') }>
                 <input className={ styled('input') } { ...rest } { ...props } />
+                <i className={ styled('icon-search abs') } />
+                <i className={ styled('icon-clear abs', props.value && 'show') } onClick={ this.handleClear } />
             </div>
         );
     }
 
     /* 触发更新 */
-    handleChange(value) {
+    handleChange(value = '') {
         if (value !== this.state.value) {
 
             // 更新状态
@@ -117,5 +120,10 @@ export default class AppSearch extends Component {
     handleCompositionEnd(event) {
         this.handleChange(event.target.value);
         this.$$isComposing = false;
+    }
+
+    /* 清除关键字 */
+    handleClear() {
+        this.handleChange();
     }
 }

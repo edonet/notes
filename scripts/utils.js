@@ -92,8 +92,8 @@ function getArticleStats(file, manifest = {}) {
             article.title = path.basename(file, '.md');
             article.lastModified = stats.mtimeMs;
             article.date = formatTime(stats.mtimeMs);
-            article.category = article.id.split(path.sep)[1] || 'notes';
-            article.tags = await getArticleTags(file);
+            article.category = upperCase(article.id.split(path.sep)[1] || 'notes');
+            article.tags = await getArticleTags(file, [article.category, Math.random() > .6 ? '随笔' : '备忘']);
 
             // 返回文件
             resolve(article);
@@ -104,14 +104,24 @@ function getArticleStats(file, manifest = {}) {
 
 /**
  *****************************************
+ * 首字母大小
+ *****************************************
+ */
+function upperCase(str) {
+    return str.substring(0, 1).toUpperCase() + str.substring(1);
+}
+
+
+/**
+ *****************************************
  * 获取文件标签
  *****************************************
  */
-function getArticleTags(file) {
+function getArticleTags(file, defaults) {
     return new Promise(resolve => {
         fs.readFile(file, (err, str) => {
             if (!err) {
-                let tags = new Set(),
+                let tags = new Set(defaults),
                     regexp = /\*\*(\S+?)\*\*/g,
                     matched = regexp.exec(str);
 
@@ -122,11 +132,11 @@ function getArticleTags(file) {
                 }
 
                 // 生成结果
-                resolve(tags.size ? [...tags] : ['随笔']);
+                resolve(tags.size ? [...tags] : defaults);
             }
 
             // 返回结果
-            return resolve(['随笔']);
+            return resolve(defaults);
         });
     });
 }

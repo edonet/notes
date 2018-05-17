@@ -48,12 +48,13 @@ export default class AppList extends Component {
     render() {
         return (
             <aside className={ styled('container lock bdrt col') }>
-                <AppSearch
-                    className={ styled('searchbar bdbt ph15 pv15') }
-                    keyword={ this.state.keyword }
-                    onChange={ this.handleKeywordChange }
-                    placeholder="Search"
-                />
+                <div className={ styled('searchbar bdbt ph15 pv15') }>
+                    <AppSearch
+                        keyword={ this.state.keyword }
+                        onChange={ this.handleKeywordChange }
+                        placeholder="Search"
+                    />
+                </div>
                 <nav className={ styled('list flex') }>
                     <ul>{ this.renderArticleList() }</ul>
                 </nav>
@@ -74,9 +75,11 @@ export default class AppList extends Component {
                     className={ styled('article ph15 pv10 bdbt', x === article && 'actived') }
                     onClick={ () => onChange(x) }>
                     <h3 className="f18 nowrap">{ x.title }</h3>
-                    <p className="f12 nowrap">
-                        <span>{ x.date.split(' ')[0] }</span>
-                        <span className="pl10">{ x.tags.join('、') }</span>
+                    <p className="f12 row">
+                        {/* <i className={ styled('icon-tag') } /> */}
+                        <span className="flex nowrap mr10">{ x.tags.join('、') }</span>
+                        {/* <i className={ styled('icon-calendar') } /> */}
+                        <span className="lock">{ x.date.split(' ')[0] }</span>
                     </p>
                 </li>
             );

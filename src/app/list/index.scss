@@ -43,3 +43,41 @@
         color: #42b983;
     }
 }
+
+
+/**
+ *****************************************
+ * 图标设置
+ *****************************************
+ */
+.icon-calendar,
+.icon-tag {
+    $size: 16px;
+    display: inline-block;
+    width: $size;
+    height: $size;
+    margin-right: 5px;
+    vertical-align: text-bottom;
+}
+
+
+/**
+ *****************************************
+ * 日期图标
+ *****************************************
+ */
+.icon-calendar {
+    background: url(../images/ios-calendar.svg) no-repeat center;
+    background-size: contain;
+}
+
+
+/**
+ *****************************************
+ * 标签图标
+ *****************************************
+ */
+.icon-tag {
+    background: url(../images/ios-tag.svg) no-repeat center;
+    background-size: contain;
+}
