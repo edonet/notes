@@ -15,6 +15,7 @@
 import React, { Component } from 'react';
 import { use } from 'ylan/style';
 import { fetchArticle } from '../../api';
+import AppMarked from '../marked';
 import style from './index.scss';
 
 
@@ -66,7 +67,7 @@ export default class AppArticle extends Component {
         return (
             <div className={ styled('container flex tc') }>
                 <article className={ styled('article ph20 pt30 tl') }>
-                    { this.state.code }
+                    <AppMarked code={ this.state.code } />
                 </article>
             </div>
         );

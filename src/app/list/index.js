@@ -76,9 +76,7 @@ export default class AppList extends Component {
                     onClick={ () => onChange(x) }>
                     <h3 className="f18 nowrap">{ x.title }</h3>
                     <p className="f12 row">
-                        {/* <i className={ styled('icon-tag') } /> */}
                         <span className="flex nowrap mr10">{ x.tags.join('、') }</span>
-                        {/* <i className={ styled('icon-calendar') } /> */}
                         <span className="lock">{ x.date.split(' ')[0] }</span>
                     </p>
                 </li>

@@ -1,0 +1,77 @@
+/**
+ *****************************************
+ * Created by lifx
+ * Created on 2018-04-07 19:22:34
+ *****************************************
+ */
+@charset "utf-8";
+
+
+/**
+ *****************************************
+ * 加载依赖
+ *****************************************
+ */
+@import "../style/settings";
+
+
+/**
+ *****************************************
+ * 文章样式
+ *****************************************
+ */
+.art-marked {
+
+    & > h1 {
+        padding: 20px 0;
+        margin-bottom: 10px;
+        font-size: 1.8em;
+        text-align: center;
+    }
+
+    & > h2 {
+        padding: 20px 0;
+        margin-bottom: 30px;
+        color: #2c3e50;
+        font-size: 1.5em;
+        line-height: 1.5em;
+        border-bottom: 1px solid $borderColor;
+
+        &::before {
+            content: '#';
+            color: $activeColor;
+            margin-right: 5px;
+        }
+    }
+
+    & > blockquote {
+        padding: 10px 1em;
+        color: #6a737d;
+        border-radius: 3px;
+        border-left: 0.25em solid #dfe2e5;
+        background-color: #f2f2f2;
+    }
+}
+
+
+/**
+ *****************************************
+ * 代码块样式
+ *****************************************
+ */
+.hljs {
+    position: relative;
+    border-radius: 3px;
+    padding: 20px 15px;
+    margin-bottom: 20px;
+    word-spacing: calc(.5em - 4px);
+    user-select: text;
+
+    &::before {
+        content: attr(data-lang);
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        font-size: 12px;
+    }
+}
