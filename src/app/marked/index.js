@@ -24,7 +24,7 @@ import marked from './marked';
 export default class AppMarked extends Component {
     render() {
         return (
-            <div dangerouslySetInnerHTML={{ __html: marked(this.props.code) }} />
+            <div className="art-marked" dangerouslySetInnerHTML={{ __html: marked(this.props.code) }} />
         );
     }
 }

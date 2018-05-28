@@ -16,16 +16,15 @@ import React, { Component } from 'react';
 import { use } from 'ylan/style';
 import { fetchArticle } from '../../api';
 import AppMarked from '../marked';
-import style from './index.scss';
+import style, { use as styled } from './index.scss';
 
-
+console.log(styled);
 /**
  *****************************************
  * 定义变量
  *****************************************
  */
 const
-    styled = use(style),
     articleCache = {};
 
 
