@@ -18,9 +18,7 @@ import articles from '../settings/article.json';
 import AppCategory from './category';
 import AppList from './list';
 import AppArticle from './article';
-import icons from './images/index.icons';
 
-console.log(icons);
 
 
 /**
